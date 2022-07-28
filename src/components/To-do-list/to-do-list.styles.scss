@@ -1,0 +1,21 @@
+.activities-container {
+  display: inline-flex;
+  flex-direction: column;
+
+  *:not(:last-child){
+    margin-bottom:1rem;
+  }
+
+  *{
+    border-radius:0.8rem;
+  }
+
+  // *:first-child {
+  //   border-top-right-radius: 0.8rem;
+  //   border-top-left-radius: 0.8rem;
+  // }
+  // *:last-child {
+  //   border-bottom-left-radius: 0.8rem;
+  //   border-bottom-right-radius: 0.8rem;
+  // }
+}

@@ -1,0 +1,58 @@
+.activity-container {
+  display: inline-flex;
+  background-color: rgb(61, 60, 60);
+  color: #fff;
+  padding: 1rem;
+  justify-content: start;
+  align-items: center;
+  width: 20rem;
+  border-bottom: 1px solid #ccc;
+  cursor: move;
+
+  &:hover {
+    .clear-activity {
+      opacity: 1;
+    }
+  }
+  .check-box {
+    border-radius: 100%;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #ccc;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 0.5rem;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .check-box-active {
+    background-color: aqua;
+  }
+
+  .activity {
+    margin-right: auto;
+  }
+
+  .activity-completed {
+    text-decoration: line-through;
+    color: #ccc;
+  }
+
+  .clear-activity {
+    // justify-self: end;
+    font-weight: 100;
+    font-size: 1rem;
+    color: #ccc;
+    cursor: pointer;
+    opacity: 0;
+  }
+}
+
+.activity-footer {
+  justify-content: space-between;
+  padding: 1rem;
+}

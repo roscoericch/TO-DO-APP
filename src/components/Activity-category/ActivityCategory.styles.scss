@@ -1,0 +1,15 @@
+.activity-category {
+  display: inline-flex;
+  background-color: rgb(61, 60, 60);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  margin-top: 1rem;
+
+  *:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
