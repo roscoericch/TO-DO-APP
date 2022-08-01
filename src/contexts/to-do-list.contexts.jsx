@@ -103,8 +103,6 @@ export const ListProvider = ({ children }) => {
 
   const updateLocalStorage = () => {
     localStorage.setItem("list", JSON.stringify(toDoList));
-    const storedActivity = JSON.parse(localStorage.getItem("list"));
-    // console.log(storedActivity);
   };
 
   const SetActiveTimer = () => {

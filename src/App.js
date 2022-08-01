@@ -8,8 +8,7 @@ import { useContext, useEffect } from "react";
 import { ListContext } from "./contexts/to-do-list.contexts";
 
 function App() {
-  const { updateLocalStorage, toDoList, addActivityToList } =
-    useContext(ListContext);
+  const { updateLocalStorage, toDoList } = useContext(ListContext);
   useEffect(() => {
     updateLocalStorage();
   }, [toDoList]);
