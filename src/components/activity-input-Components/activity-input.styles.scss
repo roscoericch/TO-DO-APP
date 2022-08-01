@@ -45,7 +45,14 @@
   }
   .timer-input {
     color: #000;
-    // border-radius: 100%;
-    // background-color: red;
+  }
+  .addIcon {
+    color: rgb(236, 38, 38);
+    margin-right: 0.3rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .timeIcon {
+    cursor: pointer;
   }
 }

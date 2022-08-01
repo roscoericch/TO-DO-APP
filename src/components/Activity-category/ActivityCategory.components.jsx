@@ -2,9 +2,11 @@ import "./ActivityCategory.styles.scss";
 const ActivityCategory = () => {
   return (
     <div className="activity-category">
-      <span className="all">All</span>
-      <span className="active">Active</span>
-      <span className="completed">Completed</span>
+      Drag and Drop to re-order Items.
+      <br />
+      Click the time icon to add a dueTime before creating activity.
+      <br />
+      with 💖 from Razak.
     </div>
   );
 };

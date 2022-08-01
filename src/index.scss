@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(../src/images/bg-desktop-dark.jpg);
+  background-size: 100%, 10rem;
+  background-repeat: no-repeat;
 }
 
 code {

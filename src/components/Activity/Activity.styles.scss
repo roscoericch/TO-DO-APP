@@ -7,8 +7,9 @@
   align-items: center;
   width: 20rem;
   border-bottom: 1px solid #ccc;
-  cursor: move;
-
+  cursor: pointer;
+  font-size: 1rem;
+  position: relative;
   &:hover {
     .clear-activity {
       opacity: 1;
@@ -49,6 +50,22 @@
     color: #ccc;
     cursor: pointer;
     opacity: 0;
+    color: rgb(214, 43, 34);
+  }
+  // .sideFlex {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+
+  //   .displayTime{
+  //     margin-bottom: 0;
+  //   }
+  // }
+  .displayTime {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.5rem;
   }
 }
 

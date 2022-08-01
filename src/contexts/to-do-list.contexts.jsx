@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import update from "immutability-helper";
 
 export const ListContext = createContext({
@@ -15,6 +15,7 @@ export const ListContext = createContext({
   moveItemOnHover: () => {},
   setActiveActivity: () => {},
   updateLocalStorage: () => {},
+  sortCompleteActivity: () => {},
 });
 
 export const ListProvider = ({ children }) => {
@@ -23,10 +24,6 @@ export const ListProvider = ({ children }) => {
   const [toDoList, setToDoList] = useState(initialState);
   const [activetimer, setactivetimer] = useState(false);
   const [time, setTime] = useState(null);
-
-  useEffect(() => {
-    const currentTime = new Date();
-  }, []);
 
   const addActivityToList = (activities) => {
     console.log(activities);
@@ -43,6 +40,13 @@ export const ListProvider = ({ children }) => {
   const removeActivity = (activity) => {
     const SortList = toDoList.filter((element) => element !== activity);
     setToDoList(SortList);
+  };
+
+  const sortCompleteActivity = () => {
+    const completedActivity = toDoList.filter(
+      (element) => element.activestate === true
+    );
+    setToDoList(completedActivity);
   };
 
   const setActiveActivity = (element, index) => {
@@ -124,6 +128,7 @@ export const ListProvider = ({ children }) => {
     SetTime,
     activetimer,
     SetActiveTimer,
+    sortCompleteActivity,
   };
   return <ListContext.Provider value={value}>{children}</ListContext.Provider>;
 };

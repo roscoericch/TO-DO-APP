@@ -4,6 +4,8 @@ import { ListContext } from "../../contexts/to-do-list.contexts";
 import SetTime from "../Time/set-time.component";
 import { ExpiryTime } from "../Time/calculate-expiryTime";
 import "./Activity.styles.scss";
+import { BiTimer } from "react-icons/bi";
+import { ImBin } from "react-icons/im";
 const Activity = ({ activity, element, index, activestate, dueTime }) => {
   const {
     completedActivity,
@@ -56,30 +58,9 @@ const Activity = ({ activity, element, index, activestate, dueTime }) => {
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return;
       }
-      // Time to actually perform the action
       moveItemOnHover(dragIndex, hoverIndex);
-      // Note: we're mutating the monitor item here!
-      // Generally it's better to avoid mutations,
-      // but it's good here for the sake of performance
-      // to avoid expensive index searches.
       item.index = hoverIndex;
     },
-    // drop: (element, monitor) => {
-    //   const dragIndex = element.index;
-    //   const hoverIndex = index;
-    //   const hoverBoundingRect = ref.current?.getBoundingClientRect();
-    //   const hoverMiddleY =
-    //     (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-    //   const hoverActualY = monitor.getClientOffset().y - hoverBoundingRect.top;
-
-    //   console.log(dragIndex, hoverIndex);
-    //   // if dragging down, continue only when hover is smaller than middle Y
-    //   if (dragIndex < hoverIndex && hoverActualY < hoverMiddleY) return;
-    //   // if dragging up, continue only when hover is bigger than middle Y
-    //   if (dragIndex > hoverIndex && hoverActualY > hoverMiddleY) return;
-    //   moveItemOnHover(dragIndex, hoverIndex);
-    //   // item.index = hoverIndex
-    // },
   });
   const dragDropRef = dragRef(dropRef(ref));
 
@@ -101,6 +82,20 @@ const Activity = ({ activity, element, index, activestate, dueTime }) => {
       }
     }
   }
+  const display = (dueTime) => {
+    if (dueTime) {
+      const Time = dueTime.split(":");
+      if (Time[0] > 12) {
+        Time[0] = Time[0] - 12;
+        const display = `${Time.join(":")} pm`;
+        return display;
+      }
+      const display = `${dueTime} am`;
+      return display;
+    }
+    return;
+  };
+  const dueTimeDisplay = display(dueTime);
   return (
     <div className="activity-container" ref={dragDropRef} style={{ opacity }}>
       <div
@@ -117,15 +112,18 @@ const Activity = ({ activity, element, index, activestate, dueTime }) => {
       >
         {activity}
       </span>
-      <span
+      {dueTime && (
+        <span className="displayTime">
+          <BiTimer />
+          {dueTimeDisplay}
+        </span>
+      )}
+      <ImBin
         className="clear-activity"
         onClick={() => {
           removeActivity(element);
         }}
-      >
-        &#10006;
-      </span>
-      {/* <SetTime /> */}
+      />
     </div>
   );
 };

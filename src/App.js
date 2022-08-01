@@ -1,5 +1,5 @@
-import { DndContext, DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd-multi-backend";
+import HTML5toTouch from "react-dnd-multi-backend/dist/esm/HTML5toTouch";
 import ActivityInput from "./components/activity-input-Components/activity-input.components";
 import ActivityList from "./components/To-do-list/to-do-list.components";
 import ActivityCategory from "./components/Activity-category/ActivityCategory.components";
@@ -12,12 +12,9 @@ function App() {
     useContext(ListContext);
   useEffect(() => {
     updateLocalStorage();
-    // const currentTime = new Date();
-    // console.log(currentTime.getMinutes());
-    // console.log(currentTime.getHours());
   }, [toDoList]);
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider options={HTML5toTouch}>
       <div className="App-container">
         <ActivityInput />
         <ActivityList />
