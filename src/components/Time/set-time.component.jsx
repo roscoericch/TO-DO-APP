@@ -20,11 +20,9 @@ function Time() {
           }
         }}
         onInput={(e) => {
-          if (e.target.value) {
-            SetTime(e.target.value);
-            SetActiveTimer();
-            console.log(e.target.value);
-          }
+          SetTime(e.target.value);
+          // SetActiveTimer();
+          console.log(e.target.value);
         }}
       />
     </div>
