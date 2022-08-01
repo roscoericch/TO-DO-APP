@@ -8,6 +8,10 @@ body {
   background-image: url(../src/images/bg-desktop-dark.jpg);
   background-size: 100%, 10rem;
   background-repeat: no-repeat;
+  @media only screen and (max-width: 600px) {
+    background-image: url(../src/images/bg-mobile-dark.jpg);
+    background-size: 100%, 30%;
+  }
 }
 
 code {
