@@ -24,6 +24,9 @@ function Time() {
           // SetActiveTimer();
           console.log(e.target.value);
         }}
+        onSubmit={() => {
+          SetActiveTimer();
+        }}
       />
     </div>
   );
