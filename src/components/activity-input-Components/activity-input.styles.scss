@@ -9,6 +9,10 @@
   width: 20rem;
   position: relative;
 
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+  }
+
   margin-bottom: 1rem;
   .check-box {
     border-radius: 100%;
@@ -34,6 +38,7 @@
     background-color: inherit;
     font-size: 1.2rem;
     color: #fff;
+    width: 80%;
   }
   .timer {
     position: absolute;
@@ -50,11 +55,8 @@
   .addIcon {
     color: rgb(236, 38, 38);
     margin-right: 0.3rem;
-    font-size: 2rem;
     cursor: pointer;
     @media only screen and (max-width: 600px) {
-      font-size: 3rem;
-      margin-right: 0;
     }
   }
   .timeIcon {

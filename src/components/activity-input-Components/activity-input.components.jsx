@@ -1,6 +1,7 @@
 import "./activity-input.styles.scss";
-import { useState, useRef ,useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 import { useContext } from "react";
+import { IconContext } from "react-icons";
 import { ListContext } from "../../contexts/to-do-list.contexts";
 import Time from "../Time/set-time.component";
 import { BiTimer } from "react-icons/bi";
@@ -20,24 +21,26 @@ const ActivityInput = () => {
   const InputHandler = (event) => {
     setInputActivity(event.target.value);
   };
-  useEffect(()=>{
+  useEffect(() => {
     inputref.current.focus();
-  },[])
+  }, []);
   return (
     <div className="input-container">
-      <MdLibraryAdd
-        className="addIcon"
-        onClick={() => {
-          const Data = { activities: inputActivity, Time: time };
-          if (inputref.current.value) addActivityToList(Data);
-          inputref.current.value = "";
-          setInputActivity("");
-          SetTime(null);
-          console.log(toDoList);
-          console.log(new Date());
-          // return updateLocalStorage();
-        }}
-      />
+      <IconContext.Provider value={{ className: "addIcon" }}>
+        <MdLibraryAdd
+          onClick={() => {
+            const Data = { activities: inputActivity, Time: time };
+            if (inputref.current.value) addActivityToList(Data);
+            inputref.current.value = "";
+            setInputActivity("");
+            SetTime(null);
+            console.log(toDoList);
+            console.log(new Date());
+            // return updateLocalStorage();
+          }}
+        />
+      </IconContext.Provider>
+
       {/* <div
         className="check-box check-box-active"
         onClick={() => {
@@ -88,7 +91,7 @@ const ActivityInput = () => {
             }
           }}
         >
-          <BiTimer className="timeIcon"/>
+          <BiTimer className="timeIcon" />
         </span>
       </div>
     </div>
